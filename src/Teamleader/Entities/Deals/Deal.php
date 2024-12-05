@@ -18,6 +18,7 @@ class Deal extends Model {
     protected $multipleNestedEntities = [
         'quotations' => [
             'entity' => 'Deals\Quotation',
+            'type'   => self::NESTING_TYPE_ARRAY_OF_OBJECTS,
         ]
     ];
 

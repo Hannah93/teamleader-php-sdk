@@ -377,6 +377,12 @@ class Connection
 
             return $this->parseResponse($response);
         } catch (Exception $e) {
+            if ( preg_match('/expired/', $e->getMessage()) ) {
+                $this->acquireRefreshToken();
+                return $this->post( $url, $body, $contentType );
+            }
+
+
             $this->parseExceptionForErrorMessages($e);
         }
     }

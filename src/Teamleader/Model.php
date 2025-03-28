@@ -134,6 +134,16 @@ abstract class Model implements JsonSerializable
     }
 
     /**
+     * Get the model's fillables
+     *
+     * @return array
+     */
+    public function fillables(): array
+    {
+        return $this->fillable;
+    }
+
+    /**
      * Fill the entity from an array
      *
      * @param array $attributes
